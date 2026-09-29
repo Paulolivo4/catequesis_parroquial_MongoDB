@@ -1,12 +1,14 @@
 from flask import Flask
 from .db import init_mongo
 from .routes import bp
+from config import Config
+
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = 'Softw@re2025'  # Necesario para flash
-    app.mongo = init_mongo(app)  # Inicializa la conexión a MongoDB
+    app.config.from_object(Config)  # SECRET_KEY and MONGO_URI come from the environment
+    app.mongo = init_mongo(app)  # Initializes the MongoDB connection
 
-    app.register_blueprint(bp)   # Registra las rutas
+    app.register_blueprint(bp)  # Registers the routes
 
     return app

@@ -46,6 +46,15 @@ python run.py
 
 Open <http://127.0.0.1:5000/>.
 
+## Configuration
+
+Settings are read from environment variables (see `flask-mongodb-app/.env.example`):
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `MONGO_URI` | MongoDB connection string | `mongodb://localhost:27017/catequesis_parroquial` |
+| `SECRET_KEY` | Flask session/flash key | random per start |
+
 ## Routes
 
 | Route | Purpose |
@@ -58,6 +67,5 @@ Open <http://127.0.0.1:5000/>.
 
 ## Roadmap
 
-- [ ] Read the MongoDB connection string and `secret_key` from environment variables (`config.py` already reads `MONGO_URI` and `SECRET_KEY`, but `app/db.py` and `app/__init__.py` still hardcode them)
 - [ ] Remove the unused sample models and the `/add` and `/delete` routes
 - [ ] Tests
